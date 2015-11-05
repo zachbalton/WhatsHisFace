@@ -78,7 +78,7 @@ public class MovieSearchActivity extends Activity {
                         movieEntry.setText("");
                         movies.add(response.body());
 
-                        // TODO change adapter to use a fragment or layout which uses the Movie Card model
+                        // TODO set up MovieListFragment and create adapter to add MovieCard views to it
                         enteredMovies.add(response.body().getTitle() + " (" + response.body().getYear() + ")");
 
                         adapter.notifyDataSetChanged();
@@ -105,7 +105,6 @@ public class MovieSearchActivity extends Activity {
     }
     //----------------------------------------------------------------------------------------------
 
-    // TODO change the nature of the button to be more material design oriented
     public void pressedSearch(View v) {
         if (enteredMovies.size() > 0) {
             if (enteredMovies.size() == 1) {

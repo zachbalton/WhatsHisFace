@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     Button movieFeature;
     Button actorFeature;
 
+    // Main activity using bare-bones layout until Movie module is finished and Actor module is set up
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
