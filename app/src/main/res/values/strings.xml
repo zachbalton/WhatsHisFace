@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WhatsHisFace</string>
+    <string name="movie_search_bar_hint">Add Movie by Title</string>
+    <string name="movie_add_button">Add to List</string>
+    <string name="movie_search_button">Find Actor</string>
+    <string name="movie_empty_list">Enter a Movie title and add it to the list to begin. Compare
+        movies to find their shared actors. Use 2-3 entries for best results.</string>
+
+</resources>
