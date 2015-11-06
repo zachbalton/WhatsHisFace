@@ -5,6 +5,9 @@ import com.skylarkingstudios.whatshisface.data.remote.OmdbService;
 import com.skylarkingstudios.whatshisface.data.remote.OmdbServiceGenerator;
 import com.skylarkingstudios.whatshisface.model.Movie;
 
+import java.util.HashMap;
+import java.util.List;
+
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Response;
@@ -16,6 +19,7 @@ public class DataManager {
         Logger.init();
 
     }
+
 
     public Movie getOmdbMovie(String title) {
         final Movie movie = new Movie();
@@ -49,6 +53,30 @@ public class DataManager {
         }.init(movie) );
 
         return movie;
+    }
+
+
+
+    public HashMap<String, Integer> getCommonActors(List<String[]> actorList) {
+
+        HashMap<String, Integer> actorFreqMap = new HashMap<>();
+
+        for (int i = 0; i < actorList.size(); i++) {
+            String cast[] = actorList.get(i);
+            int castSize = actorList.get(i).length;
+
+            // Add all actors to a HashMap with a frequency counter
+            for (int j = 0; j < castSize; j++) {
+                String actor = cast[j];
+                Integer appearances = actorFreqMap.get(actor);
+                if (appearances != null) {
+                    actorFreqMap.put(actor, appearances + 1);
+                } else {
+                    actorFreqMap.put(actor, 1);
+                }
+            }
+        }
+        return actorFreqMap;
     }
 
 

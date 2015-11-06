@@ -3,6 +3,7 @@
 
     <data>
         <variable name="viewModel" type="com.skylarkingstudios.whatshisface.viewModel.MovieSearchModel" />
+        <variable name="handler" type="com.skylarkingstudios.whatshisface.viewModel.HandlerTest" />
     </data>
 
     <LinearLayout
@@ -16,7 +17,8 @@
             android:hint="@string/movie_search_bar_hint"
             android:layout_margin="20dp"
             android:textSize="22sp"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:text="@{viewModel.titleQuery}" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -26,18 +28,21 @@
             <Button android:layout_height="wrap_content"
                 android:layout_width="150dp"
                 android:text="@string/movie_add_button"
-                android:onClick="pressedAdd"
                 android:textSize="16sp"
                 android:padding="18dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginEnd="20dp" />
+                android:layout_marginEnd="20dp"
+                android:onClick="@{handler.onClickAdd}" />
+                <!--android:onClick="@{viewModel.onClickAdd}"-->
 
             <Button android:layout_height="wrap_content"
                 android:layout_width="150dp"
                 android:text="@string/movie_search_button"
-                android:onClick="pressedSearch"
                 android:padding="18dp"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:onClick="pressedSearch"/>
+                <!--android:onClick="@{viewModel.onClickSearch}"-->
+
         </LinearLayout>
 
 

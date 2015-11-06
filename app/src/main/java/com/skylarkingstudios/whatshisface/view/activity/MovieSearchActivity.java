@@ -1,6 +1,7 @@
 package com.skylarkingstudios.whatshisface.view.activity;
 
 import android.app.Activity;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -55,6 +56,7 @@ public class MovieSearchActivity extends Activity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, enteredMovies);
         listView = (ListView) findViewById(R.id.added_movies);
         listView.setAdapter(adapter);
+
     }
 
     @Override
@@ -67,7 +69,6 @@ public class MovieSearchActivity extends Activity {
     public void pressedAdd(View v) {
 
         if (!movieEntry.getText().toString().equals("")) {
-
             OmdbService client = OmdbServiceGenerator.createService(OmdbService.class);
             Call<Movie> call = client.getMovie(movieEntry.getText().toString());
             call.enqueue(new Callback<Movie>() {
@@ -100,9 +101,7 @@ public class MovieSearchActivity extends Activity {
         }
     }
 
-    public void updateMovies(View v, Movie movie) {
 
-    }
     //----------------------------------------------------------------------------------------------
 
     public void pressedSearch(View v) {
