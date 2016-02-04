@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <data>
+        <variable name="viewModel" type="com.skylarkingstudios.whatshisface.viewModel.MovieSearchModel" />
+        <variable name="handler" type="com.skylarkingstudios.whatshisface.viewModel.HandlerTest" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/movie_entry"
+            android:hint="@string/movie_search_bar_hint"
+            android:layout_margin="20dp"
+            android:textSize="22sp"
+            android:inputType="textCapWords"
+            android:text="@{viewModel.titleQuery}" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <Button android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:text="@string/movie_add_button"
+                android:textSize="16sp"
+                android:padding="18dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:onClick="@{handler.onClickAdd}" />
+                <!--android:onClick="@{viewModel.onClickAdd}"-->
+
+            <Button android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:text="@string/movie_search_button"
+                android:padding="18dp"
+                android:textSize="16sp"
+                android:onClick="pressedSearch"/>
+                <!--android:onClick="@{viewModel.onClickSearch}"-->
+
+        </LinearLayout>
+
+
+        <TextView android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/movie_empty_list"
+            android:textSize="16sp"
+            android:padding="14dp"
+            android:id="@+id/enter_movie_prompt"/>
+
+        <ListView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/added_movies">
+        </ListView>
+
+    </LinearLayout>
+
+</layout>
